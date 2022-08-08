@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../components/UserContext";
+import { useNavigate } from "react-router-dom";
+
 import { 
     Card, 
     CardHeader,
@@ -15,24 +17,30 @@ function Deposit() {
     const [ deposit, setDeposit ] = useState(0);
     const [ total, setTotal ] = useState(context.balance);
     const [ submit, setSubmit ] = useState(false);
-    console.log('total', total)
+    const navigate = useNavigate();
+    //console.log('total', total)
 
     const handleSubmit = event => {
         console.log("submit ran");
         event.preventDefault();
         let newTotal = total + deposit;
         setTotal(newTotal);
+        
     }
+
     const handleChange = event => {
         setDeposit(Number(event.target.value));
         
     }
 
-
-     
     useEffect (() => {
+        if ( 0 === deposit ) {
+            return;
+        }
         context.balance = total;
-        console.log('useeffect', context.balance);
+        const thisTransaction = { name: context.name, ts: new Date().getTime(), type: 'Deposit', amount: deposit };
+        context.transactionHistory.push( thisTransaction );
+        navigate('/success')
     }, [total])
 
     return (
@@ -46,8 +54,8 @@ function Deposit() {
         <CardHeader>Account Balance: <br/>${total}</CardHeader>
         <CardBody>
         <form onSubmit={ handleSubmit }>
-                <h2></h2>
-                <h3>Deposit Amount: </h3>
+                <p>Please input your deposit amount and click submit!</p>
+                <h4>Deposit Amount: </h4>
                 <input 
                 type="number" 
                 min="0" 
@@ -55,7 +63,7 @@ function Deposit() {
                 value={ deposit }
                 onChange={ handleChange }
                 ></input>
-                <Button>Submit</Button>
+                <Button disabled={ !deposit ? true : false}>Submit</Button>
             </form>
         </CardBody>
     </Card>

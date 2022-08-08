@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react';
-import icon from './icon/palmtreeicon.png'
+import icon from './images/palmtreeicon.png'
 import {
   Collapse,
   Navbar,
@@ -21,19 +21,13 @@ import UserContext from '../components/UserContext';
 function NavBar(args) {
   const [isOpen, setIsOpen] = useState(false);
   const context = useContext(UserContext);
-  //const loggedin = args.loggedin;
-  console.log('this is args', args);
-  
-  
-  
-
 
   const toggle = () => setIsOpen(!isOpen);
 
 
   return (
     <div>
-      <Navbar className="navbar" {...args} expand="md">
+      <Navbar className="navbar" {...args} expand="md" >
         <NavbarBrand className="navbar-brand" href="/">
         <img
         alt="Palm Tree Icon"
@@ -47,13 +41,13 @@ function NavBar(args) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-                <NavLink href="#/">Home</NavLink>
+                <NavLink href="#/" >Home</NavLink>
             </NavItem>
             <NavItem>
             <NavLink href="#/createaccount">Create Account</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret >
                 Options
               </DropdownToggle>
               <DropdownMenu end>

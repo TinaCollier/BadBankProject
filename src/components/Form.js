@@ -10,6 +10,7 @@ const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
   const context = useContext(UserContext);
   const {
@@ -48,22 +49,22 @@ const Form = () => {
       <div className="container">
         <div className="column is-4 is-offset-4">
           <div className="box">
-            <form onSubmit={handleSubmit} noValidate>
+            <form onSubmit={ handleSubmit } noValidate>
             <div className="field">
                 <label className="label">Name</label>
                 <div className="control">
                   <input 
                   
                   autoComplete="off" 
-                  className={`input ${errors.name && 'is-danger'}`} 
+                  className={ `input ${errors.name && 'is-danger'}` } 
                   type="name" 
                   name="name" 
-                  onChange={handleChange} 
-                  value={values.name || ''} 
+                  onChange={ handleChange } 
+                  value={ values.name || '' } 
                   required />
                   {errors.name && (
                     <p className="help is-danger">
-                      {errors.name}
+                      { errors.name }
                     </p>
                   )}
                 </div>
@@ -73,15 +74,15 @@ const Form = () => {
                 <div className="control">
                   <input 
                   autoComplete="off" 
-                  className={`input ${errors.email && 'is-danger'}`} 
+                  className={ `input ${errors.email && 'is-danger'}` } 
                   type="email" 
                   name="email" 
-                  onChange={handleChange} 
-                  value={values.email || ''} 
+                  onChange={ handleChange } 
+                  value={ values.email || '' } 
                   required />
-                  {errors.email && (
+                  { errors.email && (
                     <p className="help is-danger">
-                      {errors.email}
+                      { errors.email }
                     </p>
                   )}
                 </div>
@@ -90,22 +91,23 @@ const Form = () => {
                 <label className="label">Password</label>
                 <div className="control">
                   <input 
-                  className={`input ${errors.password && 'is-danger'}`} 
+                  className={ `input ${errors.password && 'is-danger'}` } 
                   type="password" 
                   name="password" 
-                  onChange={handleChange} 
-                  value={values.password || ''} 
+                  onChange={ handleChange } 
+                  value={ values.password || '' } 
                   required />
                 </div>
-                {errors.password && (
+                { errors.password && (
                   <p className="help is-danger">
-                    {errors.password}
+                    { errors.password }
                   </p>
                 )}
               </div>
               <Button onClick={ handleCreate }
               type="submit" 
-              className="button is-block is-info is-fullwidth">
+              className="button is-block is-info is-fullwidth" 
+              disabled={ !values.name || !values.email || !values.password ? true : false }>
                 Create Account
               </Button>
             </form>

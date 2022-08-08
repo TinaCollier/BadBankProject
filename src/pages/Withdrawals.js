@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../components/UserContext";
+import { useNavigate } from "react-router-dom";
 import { 
     Card, 
     CardHeader,
@@ -11,26 +12,36 @@ import {
 
 function Withdraw() {
     const context = useContext(UserContext);
-    const [ withdrawl, setWithdrawl ] = useState(0);
+    const [ withdrawal, setWithdrawal ] = useState(0);
     const [ total, setTotal ] = useState(context.balance);
     const [ submit, setSubmit ] = useState(false);
+    const navigate = useNavigate();
     console.log('total', total)
 
     const handleSubmit = event => {
         console.log("submit ran");
         event.preventDefault();
-        let newTotal = total - withdrawl;
+        if (withdrawal > total){
+            alert('Withdraw request larger than account balance.')
+        } else {
+            let newTotal = total - withdrawal;
         setTotal(newTotal);
+        }
+        
         
     }
     const handleChange = event => {
-        setWithdrawl(Number(event.target.value));
+        setWithdrawal(Number(event.target.value));
         
     }       
     useEffect (() => {
+        if ( 0 === withdrawal ) {
+            return;
+        }
         context.balance = total;
-        console.log('useeffect', context.balance);
-       // context.transactionHistory
+        const thisTransaction = { name: context.name, ts: new Date().getTime(), type: 'Withdrawal', amount: withdrawal };
+        context.transactionHistory.push( thisTransaction );
+        navigate('/success')
     }, [total])
     return (
         <Card 
@@ -42,17 +53,18 @@ function Withdraw() {
 
         <CardHeader>Account Balance: <br/>${ total }</CardHeader>
         <CardBody>
+        <p>Please input your withdrawal amount and click submit!</p>
         <form onSubmit={ handleSubmit }>
                 <h2></h2>
-                <h3>Withdrawl Amount: </h3>
+                <h4>Withdrawal Amount: </h4>
                 <input 
                 type="number" 
                 min="0" 
                 width="200" 
-                value={ withdrawl }
+                value={ withdrawal }
                 onChange={ handleChange }
                 ></input>
-                <Button>Submit</Button>
+                <Button disabled={ !withdrawal ? true : false}>Submit</Button>
             </form>
         </CardBody>
     </Card>

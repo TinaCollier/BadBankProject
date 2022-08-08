@@ -11,16 +11,13 @@ import {
  import UserContext from '../components/UserContext';
  import { useContext } from 'react';
 
-function NewAccount() {
+function Success() {
     const navigate = useNavigate();
-    function onClickNewAccount() {
-        navigate('/createaccount');
-    }
     function onClickDeposit() {
-        navigate('/deposit');
+        navigate('/deposit')
     }
     function onClickWithdraw() {
-        navigate('/withdraw');
+        navigate('/withdraw')
     }
     const context = useContext(UserContext);
 
@@ -39,13 +36,7 @@ function NewAccount() {
                         Hello, {context.name}!
                     </CardSubtitle>
                     <CardText>
-                        You have created an account with Bad Bank. Your account balance is: ${context.balance}. Would you like to create another account?
-                    </CardText>
-                    <Button onClick={ onClickNewAccount }>Create Another Account</Button>
-                    <br/>
-                    <br/>
-                    <CardText>
-                        Or choose an option below:
+                        Your transaction was successful. Your account balance is: ${context.balance}. Would you like to complete another transaction?
                     </CardText>
                     <Button id="deposit" onClick={ onClickDeposit }>Deposit</Button>
                     <Button id="withdraw" onClick={ onClickWithdraw }>Withdraw</Button>
@@ -55,4 +46,4 @@ function NewAccount() {
     )
 }
 
-export default NewAccount;
+export default Success;

@@ -4,15 +4,31 @@ import UserContext from '../components/UserContext';
 import { 
     Card,
     Table,
-    Col
+    Col,
+    CardHeader,
+    CardFooter
  } from 'reactstrap';
 
 function AllData() {
     const context = useContext(UserContext);
+    const renderTable = () => {
+        return context.transactionHistory.map((transaction, index) => {
+            const { name, ts, type, amount} = transaction;
+            return (
+                <tr key={ts}>
+                    <th scope="row">{name}</th>
+                    <td>{type}</td>
+                    <td>${amount}</td>
+                </tr>
+            )
+        })
+    }
+    
  
     return (
         <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Card className="allDataCard" >
+                <CardHeader>All Transactions</CardHeader>
                 <Table size="sm">
                     <thead>
                         <tr>
@@ -25,56 +41,14 @@ function AllData() {
                         <th>
                             Amount
                         </th>
-                        <th>
-                            Account Balance
-                        </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">
-                            {context.name}
-                        </th>
-                        <td>
-                            Withdrawl 
-                        </td>
-                        <td>
-                            $5
-                        </td>
-                        <td>
-                            {context.balance}
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">
-                        AllData@BadBank.com
-                        </th>
-                        <td>
-                            Deposit
-                        </td>
-                        <td>
-                            $50
-                        </td>
-                        <td>
-                            $545
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">
-                        AllData@BadBank.com
-                        </th>
-                        <td>
-                            Deposit
-                        </td>
-                        <td>
-                            $100
-                        </td>
-                        <td>
-                            $645
-                        </td>
-                        </tr>
+
+                        {renderTable()}
                     </tbody>
                 </Table>
+            <CardFooter>Current Account Balance ${context.balance}</CardFooter>
         </Card> 
     </Col>
     )

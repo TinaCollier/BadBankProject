@@ -7,6 +7,7 @@ import {
     Button,
     Col
  } from 'reactstrap';
+ import HomePageImg from './images/homepage.jpg'
 
 function HomePage() {
     return (
@@ -14,7 +15,7 @@ function HomePage() {
             <Card >
                 <img
                 alt="Card image"
-                src="https://picsum.photos/300/200"
+                src={HomePageImg}
                 />
                 <CardBody>
                     <CardTitle tag="h5">
