@@ -13,6 +13,9 @@ import {
 
 function Success() {
     const navigate = useNavigate();
+    function onClickNewAccount() {
+        navigate('/createaccount');
+    }
     function onClickDeposit() {
         navigate('/deposit')
     }
@@ -40,6 +43,10 @@ function Success() {
                     </CardText>
                     <Button id="deposit" onClick={ onClickDeposit }>Deposit</Button>
                     <Button id="withdraw" onClick={ onClickWithdraw }>Withdraw</Button>
+                    <CardText>
+                        Would you like to create a new account?
+                    </CardText>
+                    <Button onClick={ onClickNewAccount }>Create Another Account</Button>
                 </CardBody>
         </Card> 
     </Col>

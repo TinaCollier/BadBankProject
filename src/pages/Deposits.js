@@ -16,7 +16,7 @@ function Deposit() {
     const [ transaction, setTransaction ] = useState({});
     const [ deposit, setDeposit ] = useState(0);
     const [ total, setTotal ] = useState(context.balance);
-    const [ submit, setSubmit ] = useState(false);
+    const [ error, setError ] = useState('');
     const navigate = useNavigate();
     //console.log('total', total)
 
@@ -29,8 +29,12 @@ function Deposit() {
     }
 
     const handleChange = event => {
-        setDeposit(Number(event.target.value));
-        
+        const input = event.target.value;
+        if (isNaN(input)) {
+            setError('Please input a valid number')
+        } else { 
+            setDeposit(Number(input)); 
+        }
     }
 
     useEffect (() => {
@@ -57,12 +61,12 @@ function Deposit() {
                 <p>Please input your deposit amount and click submit!</p>
                 <h4>Deposit Amount: </h4>
                 <input 
-                type="number" 
-                min="0" 
+                type="text" 
                 width="200" 
                 value={ deposit }
                 onChange={ handleChange }
                 ></input>
+                <div className="error" >{ error }</div>
                 <Button disabled={ !deposit ? true : false}>Submit</Button>
             </form>
         </CardBody>

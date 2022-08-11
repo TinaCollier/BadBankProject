@@ -38,6 +38,7 @@ const Form = () => {
     context.email = email;
     context.password = password;
     context.balance = 100;
+    context.transactionHistory = [];
     context.loggedin = true;
 
   }, [name]
@@ -63,7 +64,7 @@ const Form = () => {
                   value={ values.name || '' } 
                   required />
                   {errors.name && (
-                    <p className="help is-danger">
+                    <p className="help is-danger" style={{ color: 'red' }}>
                       { errors.name }
                     </p>
                   )}
@@ -81,7 +82,7 @@ const Form = () => {
                   value={ values.email || '' } 
                   required />
                   { errors.email && (
-                    <p className="help is-danger">
+                    <p className="help is-danger" style={{ color: 'red' }}>
                       { errors.email }
                     </p>
                   )}
@@ -99,7 +100,7 @@ const Form = () => {
                   required />
                 </div>
                 { errors.password && (
-                  <p className="help is-danger">
+                  <p className="help is-danger" style={{ color: 'red' }}>
                     { errors.password }
                   </p>
                 )}
