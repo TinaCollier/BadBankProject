@@ -28,7 +28,7 @@ function NavBar(args) {
   return (
     <div>
       <Navbar className="navbar" {...args} expand="md" >
-        <NavbarBrand className="navbar-brand" href="/">
+        <NavbarBrand className="navbar-brand" href="#/">
         <img
         alt="Palm Tree Icon"
         src={ icon }
