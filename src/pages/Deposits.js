@@ -49,7 +49,7 @@ function Deposit() {
 
     return (
         <Card 
-        className="my-2"
+        className="text-center"
         style={{
           width: '18rem'
         }}
@@ -61,12 +61,13 @@ function Deposit() {
                 <p>Please input your deposit amount and click submit!</p>
                 <h4>Deposit Amount: </h4>
                 <input 
+                className="inputAmount"
                 type="text" 
                 width="200" 
                 value={ deposit }
                 onChange={ handleChange }
                 ></input>
-                <div className="error" >{ error }</div>
+                <div className="error">{ error }</div>
                 <Button disabled={ !deposit ? true : false}>Submit</Button>
             </form>
         </CardBody>

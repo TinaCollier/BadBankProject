@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Link } from 'react';
+import React, { useState } from 'react';
 import icon from './images/palmtreeicon.png'
 import {
   Collapse,
@@ -13,17 +12,13 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
 } from 'reactstrap';
-import UserContext from '../components/UserContext';
+
 
 
 function NavBar(args) {
   const [isOpen, setIsOpen] = useState(false);
-  const context = useContext(UserContext);
-
   const toggle = () => setIsOpen(!isOpen);
-
 
   return (
     <div>

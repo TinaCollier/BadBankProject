@@ -1,6 +1,3 @@
-* {
-  font-size: 1.17rem;
-}
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #d5b39c;
@@ -48,8 +45,12 @@ body {
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
   border: 2mm ridge #6d8995;
-  max-width: 600px;
-  font-size: 1.2rem;
+  max-height: 600px;
+  font-size: .8rem;
+}
+.card img {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .card-header {
@@ -63,14 +64,29 @@ body {
   font-size: 1.2rem;
 }
 
-.input {
+.card-button {
+  margin: 0 auto;
+
+}
+input {
   width: 100%;
+  text-align: center;
 }
 
-.button {
+p.help.is-danger {
+  margin-bottom: 0px;
+}
+
+button {
+  margin-top: 5px;
   width: 250px;
+
 }
 
 .error {
   color: red;
+}
+
+.inputAmount {
+  font-size: 1.2rem;
 }

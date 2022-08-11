@@ -25,7 +25,7 @@ function NewAccount() {
     const context = useContext(UserContext);
 
     return (
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card >
 
                 <CardBody>

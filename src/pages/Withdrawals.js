@@ -49,7 +49,7 @@ function Withdraw() {
     }, [total])
     return (
         <Card 
-        className="my-2"
+        className="text-center"
         style={{
           width: '18rem'
         }}
@@ -62,6 +62,7 @@ function Withdraw() {
                 <h2></h2>
                 <h4>Withdrawal Amount: </h4>
                 <input 
+                className="inputAmount"
                 type="text"  
                 width="200" 
                 value={ withdrawal }

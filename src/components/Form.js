@@ -49,7 +49,7 @@ const Form = () => {
     <div className="section is-fullheight" >
       <div className="container">
         <div className="column is-4 is-offset-4">
-          <div className="box">
+          <div className="text-center">
             <form onSubmit={ handleSubmit } noValidate>
             <div className="field">
                 <label className="label">Name</label>

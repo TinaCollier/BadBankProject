@@ -25,7 +25,7 @@ function Success() {
     const context = useContext(UserContext);
 
     return (
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card >
 
                 <CardBody>
@@ -43,6 +43,8 @@ function Success() {
                     </CardText>
                     <Button id="deposit" onClick={ onClickDeposit }>Deposit</Button>
                     <Button id="withdraw" onClick={ onClickWithdraw }>Withdraw</Button>
+                    <br />
+                    <br />
                     <CardText>
                         Would you like to create a new account?
                     </CardText>

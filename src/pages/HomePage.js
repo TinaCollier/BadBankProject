@@ -11,7 +11,7 @@ import {
 
 function HomePage() {
     return (
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card >
                 <img
                 alt="Card image"
