@@ -4,6 +4,22 @@ body {
 
 }
 
+footer {
+  height: 50px;
+  border: 2mm ridge #6d8995;
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  border-radius: 7.5px;
+  background-color: #cec5bf;
+  border: solid #d5b39c;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
 .App {
   content: "";
   top: 0;
@@ -13,8 +29,9 @@ body {
   position: absolute;
   background-image: url("../public/images/background.jpg");
   background-size: cover;
-
+  min-height: 100%;
   filter: sepia(50%);
+  
 }
 
 .navbar {
@@ -37,19 +54,24 @@ body {
   background-color: white;
 }
 
+.navbar-text {
+  
+}
+
 .card {
   border-style: outset;
   background-color: #cec5bf;
-  top: 80px;
+  top: 50px;
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
   border: 2mm ridge #6d8995;
   max-height: 600px;
+  max-width: 450px;
   font-size: .8rem;
 }
 .card img {
-  max-width: 400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -80,7 +102,6 @@ p.help.is-danger {
 button {
   margin-top: 5px;
   width: 250px;
-
 }
 
 .error {
@@ -89,4 +110,19 @@ button {
 
 .inputAmount {
   font-size: 1.2rem;
+}
+
+.list-inline {
+  padding-top: 5px;
+}
+
+.list-inline-item img{
+  width: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.calc {
+  width: 400px;
+  height: 400px;
 }

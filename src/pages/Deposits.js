@@ -1,13 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../components/UserContext";
 import { useNavigate } from "react-router-dom";
-
 import { 
     Card, 
     CardHeader,
     CardBody, 
     Button 
 } from "reactstrap";
+
 
 
 
@@ -70,6 +70,7 @@ function Deposit() {
                 <div className="error">{ error }</div>
                 <Button disabled={ !deposit ? true : false}>Submit</Button>
             </form>
+
         </CardBody>
     </Card>
     );

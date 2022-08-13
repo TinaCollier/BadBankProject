@@ -6,7 +6,7 @@ import {
     Col
  } from 'reactstrap';
  import Form from '../components/Form';
- import Family from './images/createAccount.jpg'
+ import AccountPic from './images/createAccount.jpg'
 
 function CreateAccount( props ) {
     
@@ -14,8 +14,9 @@ function CreateAccount( props ) {
         <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card id="createAccountCard">
             <img
-                alt="Family at the beach"
-                src={ Family }
+                
+                alt="Woman on computer"
+                src={ AccountPic }
             />
             <CardBody>
                 <CardTitle tag="h5">

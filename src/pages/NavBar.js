@@ -12,7 +12,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  NavbarText
 } from 'reactstrap';
+
 
 
 
@@ -55,7 +57,7 @@ function NavBar(args) {
                 <NavLink href="#/alldata">All Data</NavLink>
             </NavItem>
           </Nav>
-
+          <NavbarText className="name">Tina Collier</NavbarText>
         </Collapse>
       </Navbar>
     </div>

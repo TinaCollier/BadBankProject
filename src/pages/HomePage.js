@@ -14,6 +14,7 @@ function HomePage() {
         <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card >
                 <img
+                className="homePageImg"
                 alt="Card image"
                 src={HomePageImg}
                 />
