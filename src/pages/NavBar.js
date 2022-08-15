@@ -50,12 +50,13 @@ function NavBar(args) {
               <DropdownMenu end>
                 <DropdownItem><NavLink href="#/deposit">Deposit</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/withdraw">Withdraw</NavLink></DropdownItem>
-
+                <DropdownItem><NavLink href="#/calculator">Calculator</NavLink></DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
                 <NavLink href="#/alldata">All Data</NavLink>
             </NavItem>
+  
           </Nav>
           <NavbarText className="name">Tina Collier</NavbarText>
         </Collapse>

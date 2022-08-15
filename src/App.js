@@ -13,6 +13,7 @@ import CreateAccount from './pages/CreateAccount';
 import AllData from './pages/AllData';
 import HomePage from './pages/HomePage';
 import NewAccount from './pages/NewAccount';
+import CalculatorCard from './pages/CalculatorCard';
 import Success from './pages/Success'
 import UserContext from './components/UserContext';
 import githubicon from './pages/images/githubicon.png';
@@ -39,6 +40,7 @@ function App() {
             <Route path="/alldata"        element={ <AllData /> }       />
             <Route path="/newaccount"     element={ <NewAccount /> }    />
             <Route path="/success"        element={ <Success /> }       />
+            <Route path="/calculator"        element={ <CalculatorCard /> }       />
           </Routes>
         </HashRouter>
       </div>

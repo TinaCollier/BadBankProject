@@ -8,9 +8,6 @@ import {
     Button 
 } from "reactstrap";
 
-
-
-
 function Deposit() {
     const context = useContext(UserContext);
     const [ transaction, setTransaction ] = useState({});

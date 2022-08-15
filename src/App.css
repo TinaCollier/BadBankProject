@@ -48,6 +48,7 @@ footer {
 .nav-link:hover {
   background-color: #6d8995;
   color: white;
+  border-radius: 5px;
 }
 
 .nav-link.active {
@@ -104,6 +105,21 @@ button {
   width: 250px;
 }
 
+#formbutton {
+  margin-top: 5px;
+  width: 250px;
+  height: 40px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #6c757d;
+}
+
+#formbutton:hover {
+  background-color: #5c636a;
+  color: white;
+  border-radius: 5px;
+}
+
 .error {
   color: red;
 }
@@ -122,7 +138,8 @@ button {
   margin-left: 20px;
 }
 
-.calc {
-  width: 400px;
-  height: 400px;
+
+.calculatorcard {
+  width: 320px;
+  margin: 0 auto;
 }
