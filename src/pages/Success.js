@@ -13,8 +13,8 @@ import {
 
 function Success() {
     const navigate = useNavigate();
-    function onClickNewAccount() {
-        navigate('/createaccount');
+    function onClickAllData() {
+        navigate('/alldata');
     }
     function onClickDeposit() {
         navigate('/deposit')
@@ -46,9 +46,9 @@ function Success() {
                     <br />
                     <br />
                     <CardText>
-                        Would you like to create a new account?
+                        Would you like to view your transaction data?
                     </CardText>
-                    <Button onClick={ onClickNewAccount }>Create Another Account</Button>
+                    <Button onClick={ onClickAllData }>All Data</Button>
                 </CardBody>
         </Card> 
     </Col>
