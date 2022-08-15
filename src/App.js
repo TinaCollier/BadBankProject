@@ -14,7 +14,8 @@ import AllData from './pages/AllData';
 import HomePage from './pages/HomePage';
 import NewAccount from './pages/NewAccount';
 import CalculatorCard from './pages/CalculatorCard';
-import Success from './pages/Success'
+import Success from './pages/Success';
+import NewsPage from './pages/NewsPage';
 import UserContext from './components/UserContext';
 import githubicon from './pages/images/githubicon.png';
 import linkedinicon from './pages/images/linkedinicon.png';
@@ -41,6 +42,8 @@ function App() {
             <Route path="/newaccount"     element={ <NewAccount /> }    />
             <Route path="/success"        element={ <Success /> }       />
             <Route path="/calculator"        element={ <CalculatorCard /> }       />
+            <Route path="/news"        element={ <NewsPage /> }       />
+
           </Routes>
         </HashRouter>
       </div>

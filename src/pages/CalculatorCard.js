@@ -6,7 +6,6 @@ import {
     Col,
     CardHeader
  } from 'reactstrap';
-
  import Calculator from '../components/Calculator';
 
 function CalculatorCard() {

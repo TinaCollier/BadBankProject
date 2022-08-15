@@ -51,6 +51,7 @@ function NavBar(args) {
                 <DropdownItem><NavLink href="#/deposit">Deposit</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/withdraw">Withdraw</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/calculator">Calculator</NavLink></DropdownItem>
+                <DropdownItem><NavLink href="#/news">News Search</NavLink></DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
