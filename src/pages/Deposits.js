@@ -15,14 +15,12 @@ function Deposit() {
     const [ total, setTotal ] = useState(context.balance);
     const [ error, setError ] = useState('');
     const navigate = useNavigate();
-    //console.log('total', total)
+
 
     const handleSubmit = event => {
-        console.log("submit ran");
         event.preventDefault();
         let newTotal = total + deposit;
-        setTotal(newTotal);
-        
+        setTotal(newTotal);   
     }
 
     const handleChange = event => {

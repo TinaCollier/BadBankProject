@@ -156,3 +156,33 @@ img.thumbnail {
 ul {
   list-style-type: none;
 }
+
+#newsButton {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: -12px;
+}
+
+#paginationButton {
+  width: 45px;
+  margin-top: 0px;
+  margin-right: 5px;
+
+}
+
+ul.pagination {
+  padding-left: 66px;
+}
+
+li.item {
+  border-bottom: 1px solid #6d8995;
+}
+
+li.item a {
+  color: #216481;
+}
+
+li.item a:hover {
+  color: #6d8995;
+}

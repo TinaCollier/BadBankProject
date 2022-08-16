@@ -16,7 +16,6 @@ function Withdraw() {
     const [ total, setTotal ] = useState(context.balance);
     const [ error, setError ] = useState('');
     const navigate = useNavigate();
-    console.log('total', total)
 
     const handleSubmit = event => {
         console.log("submit ran");
@@ -27,9 +26,8 @@ function Withdraw() {
             let newTotal = total - withdrawal;
         setTotal(newTotal);
         }
-        
-        
     }
+
     const handleChange = event => {
         const input = event.target.value;
         if (isNaN(input)) {

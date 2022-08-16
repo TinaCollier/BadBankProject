@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'reactstrap';
 
 
 
 async function searchNews(q) {
     q = encodeURIComponent(q);
-    const response = await fetch(`https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Strict&q=${q}`, {
+    const response = await fetch(`https://bing-news-search1.p.rapidapi.com/news/search?freshness&count=25&Day&textFormat=Raw&safeSearch=Strict&q=${q}`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
@@ -20,19 +20,17 @@ async function searchNews(q) {
 function Item({ item }) {
     const separateWords = s => s.replace(/[A-Z][a-z]+/g, '$& ').trim();
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    
     return (
         <li className="item">
-
-        <h2 className="title"
-        >
+        <h2 className="title">
             {item.image &&
             <img className="thumbnail"
-        
             alt=""
             src={item.image?.thumbnail?.contentUrl}
             />
-        }
-            <a href={item.url}>{item.name}</a>
+            }
+            <a href={item.url} target="_blank">{item.name}</a>
         </h2>
 
         <div className="meta">
@@ -55,81 +53,87 @@ function Item({ item }) {
 }
 
 const Pagination = ({ list, pageSize, onPageChange }) => {
-    if (list.length <= 1) return null;
 
+    if (list.length <= 1) return null;
     let num = Math.ceil(list.length / pageSize);
-    let pages = range( 1, num + 1);
-    const listItems = pages.map( page => {
-        return (
-            <Button 
-            key={ page } 
-            onClick={ onPageChange } 
-            className="page-item">
-                { page }
-            </Button>
-        );
+    let pages = range(1, num);
+    const items = pages.map(page => {
+      return (
+        <Button key={ page } onClick={ onPageChange } className="page-item" id="paginationButton">
+          { page }
+        </Button>
+      );
     });
     return (
-        <nav>
-            <ul className="pagination">{ list }</ul>
-        </nav>
+      <nav>
+        <ul className="pagination">{ items } </ul>
+      </nav>
     );
-};
-const range = ( start, end ) => {
+  };
+
+const range = (start, end) => {
     return Array(end - start + 1)
-    .fill(0)
-    .map((item, i) => start + 1);
+      .fill(0)
+      .map((item, i) => start + i);
 };
 
-function paginate( list, pageNumber, pageSize) {
+function paginate(list, pageNumber, pageSize) {
     const start = (pageNumber - 1) * pageSize;
-    let page = list.slice( start, start + pageSize);
+    let page = list.slice(start, start + pageSize);
     return page;
 }
 
 const NewsSearch = () => {
     const [query, setQuery] = useState('finance');
-    const [list, setList] = useState(null);
+    const [list, setList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 10;
+    const pageSize = 5;
 
     const search = (e) => {
         e.preventDefault();
         searchNews(query).then(setList);
     };
     
-    // const handlePageChange = e => {
-    //     setCurrentPage(Number(e.target.textContent));
-    // };
-    
-    // let items = list.length;
-    // if (items.length >= 1) {
-    //     items = paginate(items, currentPage, pageSize);
-    //     console.log('currentPage: ', currentPage);
-    // }
+    const handlePageChange = e => {
+        setCurrentPage(Number(e.target.textContent));
+    };
+
+    let page = list;
+    if (page.length >= 1){
+         page = paginate(page, currentPage, pageSize);
+         console.log(`currentPage: ${currentPage}`);
+    }
+
 
     return (
         <div>
             <form onSubmit={search}>
                 <input
-                style={{ width: "180px" }}
+                hidden={ true }
                 autoFocus
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 />
-                <Button style={{ width: "100px" }}>Search</Button>
+                <Button id="newsButton">Click Here!</Button>
             </form>
-            {!list
+            {!page
             ? null
             : list.length === 0
-            ? <p><i>No results</i></p>
+            ? <p><i>Click the button to see current financial news.</i></p>
             : <ul>
-            {list.map((item, i) => (
-              <Item key={i} item={item} />
+            {page.map((item, i) => (
+              <Item 
+              key={ i } 
+              item={ item } 
+              />
             ))}
             </ul>
             }
-
+            <Pagination
+                list={ list }
+                pageSize={ pageSize }
+                onPageChange={ handlePageChange }
+            ></Pagination>
         </div>
     )
 }
