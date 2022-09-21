@@ -10,9 +10,10 @@ import {
 import Deposit from './pages/Deposits';
 import Withdraw from './pages/Withdrawals';
 import CreateAccount from './pages/CreateAccount';
-import AllData from './pages/AllData';
+import Transactions from './pages/Transactions';
 import HomePage from './pages/HomePage';
 import NewAccount from './pages/NewAccount';
+import AllData from './pages/AllData';
 import CalculatorCard from './pages/CalculatorCard';
 import Success from './pages/Success';
 import NewsPage from './pages/NewsPage';
@@ -20,6 +21,7 @@ import UserContext from './components/UserContext';
 import githubicon from './pages/images/githubicon.png';
 import linkedinicon from './pages/images/linkedinicon.png';
 import emailicon from './pages/images/emailicon.png'
+
 
 
 function App() {
@@ -34,15 +36,16 @@ function App() {
         <HashRouter>
           <NavBar />
           <Routes>
-            <Route path="/" exact         element={ <HomePage /> }      />
-            <Route path="/createaccount"  element={ <CreateAccount /> } />
-            <Route path="/deposit"        element={ <Deposit /> }       />
-            <Route path="/withdraw"       element={ <Withdraw /> }      />
-            <Route path="/alldata"        element={ <AllData /> }       />
-            <Route path="/newaccount"     element={ <NewAccount /> }    />
-            <Route path="/success"        element={ <Success /> }       />
-            <Route path="/calculator"        element={ <CalculatorCard /> }       />
-            <Route path="/news"        element={ <NewsPage /> }       />
+            <Route path="/" exact element={ <HomePage /> } />
+            <Route path="/createaccount" element={ <CreateAccount /> } />
+            <Route path="/deposit" element={ <Deposit /> } />
+            <Route path="/withdraw" element={ <Withdraw /> } />
+            <Route path="/transactions" element={ <Transactions /> } />
+            <Route path="/alldata" element={ <AllData /> } />
+            <Route path="/newaccount" element={ <NewAccount /> } />
+            <Route path="/success" element={ <Success /> } />
+            <Route path="/calculator" element={ <CalculatorCard /> } />
+            <Route path="/news" element={ <NewsPage /> } />
 
           </Routes>
         </HashRouter>

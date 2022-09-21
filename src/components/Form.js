@@ -5,6 +5,7 @@ import validate from './LoginValidation';
 import { useNavigate } from "react-router-dom";
 import { Button } from 'reactstrap';
 import UserContext from './UserContext';
+import AccountContext from './AccountContext';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -13,6 +14,7 @@ const Form = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
   const context = useContext(UserContext);
+  const accountContext = useContext(AccountContext)
   const {
     values,
     errors,
@@ -33,17 +35,23 @@ const Form = () => {
   }
 
   useEffect(() => {
-    console.log('this is ', name, email, password);
+    console.log(`Account Created for ${name}`);
+    context.id = new Date().valueOf();
     context.name = name;
     context.email = email;
     context.password = password;
     context.balance = 100;
     context.transactionHistory = [];
     context.loggedin = true;
-
+    accountContext.accounts.push({
+      id: new Date().valueOf(),
+      name: name,
+      email: email,
+      password: password,
+      balance: 100,
+  });
   }, [name]
   )
-
 
   return (
     <div className="section is-fullheight" >
@@ -55,7 +63,6 @@ const Form = () => {
                 <label className="label">Name</label>
                 <div className="control">
                   <input 
-                  
                   autoComplete="off" 
                   className={ `input ${errors.name && 'is-danger'}` } 
                   type="name" 

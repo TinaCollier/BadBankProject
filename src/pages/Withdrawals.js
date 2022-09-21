@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../components/UserContext";
+import AccountContext from "../components/AccountContext";
 import { useNavigate } from "react-router-dom";
 import { 
     Card, 
@@ -12,6 +13,7 @@ import {
 
 function Withdraw() {
     const context = useContext(UserContext);
+    const accountContext = useContext(AccountContext);
     const [ withdrawal, setWithdrawal ] = useState(0);
     const [ total, setTotal ] = useState(context.balance);
     const [ error, setError ] = useState('');
@@ -36,11 +38,22 @@ function Withdraw() {
             setWithdrawal(Number(input)); 
         }
     }      
+
+    const updateAccountBalance = () => {
+        const validate = accountContext.accounts.find( account => account.email === context.email );
+        if ( !validate ) {
+            console.log('did not find the email')
+        } else if (validate && accountContext.accounts.email === context.email) {
+            accountContext.accounts.balance = total;
+            }
+        }
+
     useEffect (() => {
         if ( 0 === withdrawal ) {
             return;
         }
         context.balance = total;
+        updateAccountBalance();
         const thisTransaction = { name: context.name, ts: new Date().getTime(), type: 'Withdrawal', amount: withdrawal };
         context.transactionHistory.push( thisTransaction );
         navigate('/success')

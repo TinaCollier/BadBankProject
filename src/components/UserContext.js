@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 
 const user = {
+  id: 0,
   name: 'Tinabear',
   email: '',
   password: '',

@@ -13,8 +13,8 @@ import {
 
 function Success() {
     const navigate = useNavigate();
-    function onClickAllData() {
-        navigate('/alldata');
+    function onClickTransactions() {
+        navigate('/transactions');
     }
     function onClickDeposit() {
         navigate('/deposit')
@@ -48,7 +48,7 @@ function Success() {
                     <CardText>
                         Would you like to view your transaction data?
                     </CardText>
-                    <Button onClick={ onClickAllData }>All Data</Button>
+                    <Button onClick={ onClickTransactions }>Transactions</Button>
                 </CardBody>
         </Card> 
     </Col>

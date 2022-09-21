@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../components/UserContext";
+import AccountContext from "../components/AccountContext";
 import { useNavigate } from "react-router-dom";
 import { 
     Card, 
@@ -10,6 +11,7 @@ import {
 
 function Deposit() {
     const context = useContext(UserContext);
+    const accountContext = useContext(AccountContext);
     const [ transaction, setTransaction ] = useState({});
     const [ deposit, setDeposit ] = useState(0);
     const [ total, setTotal ] = useState(context.balance);
@@ -37,6 +39,7 @@ function Deposit() {
             return;
         }
         context.balance = total;
+        accountContext.balance = total;
         const thisTransaction = { name: context.name, ts: new Date().getTime(), type: 'Deposit', amount: deposit };
         context.transactionHistory.push( thisTransaction );
         navigate('/success')

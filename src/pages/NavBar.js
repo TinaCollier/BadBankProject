@@ -47,12 +47,13 @@ function NavBar(args) {
               <DropdownMenu end>
                 <DropdownItem><NavLink href="#/deposit">Deposit</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/withdraw">Withdraw</NavLink></DropdownItem>
+                <DropdownItem><NavLink href="#/transactions">Transactions</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/calculator">Calculator</NavLink></DropdownItem>
                 <DropdownItem><NavLink href="#/news">News Search</NavLink></DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-                <NavLink href="#/alldata">All Data</NavLink>
+                <NavLink href="#/alldata">AllData</NavLink>
             </NavItem>
   
           </Nav>

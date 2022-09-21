@@ -8,8 +8,10 @@ import {
     Col
  } from 'reactstrap';
  import HomePageImg from './images/homepage.jpg'
+ import { useContext, UserContext } from 'react';
 
 function HomePage() {
+
     return (
         <Col sm="12" md={{ size: 6, offset: 3 }} className="text-center">
             <Card >
