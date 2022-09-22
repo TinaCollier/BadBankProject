@@ -15,6 +15,9 @@ const Form = () => {
   const navigate = useNavigate();
   const context = useContext(UserContext);
   const accountContext = useContext(AccountContext)
+  let newUser;
+  const [data, setData] = React.useState([]);
+
   const {
     values,
     errors,
@@ -25,16 +28,20 @@ const Form = () => {
   function login() {
     console.log('No errors, submit callback called!');
     navigate('/newaccount');
+    newUser = context;
+    accountContext.accounts.push(JSON.parse(JSON.stringify(newUser)))
+    console.log(accountContext)
   }
 
   function handleCreate() {
-    console.log( values.name, values.email, values.password);
+    // console.log( values.name, values.email, values.password);
     setName(values.name);
     setEmail(values.email);
     setPassword(values.password);
   }
 
   useEffect(() => {
+    if (name !== '' && password.length > 7){
     console.log(`Account Created for ${name}`);
     context.id = new Date().valueOf();
     context.name = name;
@@ -43,13 +50,8 @@ const Form = () => {
     context.balance = 100;
     context.transactionHistory = [];
     context.loggedin = true;
-    accountContext.accounts.push({
-      id: new Date().valueOf(),
-      name: name,
-      email: email,
-      password: password,
-      balance: 100,
-  });
+  };
+
   }, [name]
   )
 

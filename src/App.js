@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import NavBar from './pages/NavBar';
 import { List, ListInlineItem } from 'reactstrap';
 import {
@@ -27,7 +27,7 @@ import emailicon from './pages/images/emailicon.png'
 function App() {
   
   const context = useContext(UserContext);
-  
+
 
   return (
     
@@ -50,6 +50,7 @@ function App() {
           </Routes>
         </HashRouter>
       </div>
+
       <footer className="text-center text-md-right">
         <List type="inline">
           <ListInlineItem>

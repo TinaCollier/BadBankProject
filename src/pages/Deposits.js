@@ -34,12 +34,18 @@ function Deposit() {
         }
     }
 
+    const updateAccountBalance = () => {
+        accountContext.accounts.find(account => {
+            account.id === context.id ? account.balance = total : console.log('updated balance');
+        });
+    }
+
     useEffect (() => {
         if ( 0 === deposit ) {
             return;
         }
         context.balance = total;
-        accountContext.balance = total;
+        updateAccountBalance();
         const thisTransaction = { name: context.name, ts: new Date().getTime(), type: 'Deposit', amount: deposit };
         context.transactionHistory.push( thisTransaction );
         navigate('/success')

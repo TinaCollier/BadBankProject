@@ -37,16 +37,14 @@ function Withdraw() {
         } else { 
             setWithdrawal(Number(input)); 
         }
-    }      
-
+    }  
+    
+    // update account balance
     const updateAccountBalance = () => {
-        const validate = accountContext.accounts.find( account => account.email === context.email );
-        if ( !validate ) {
-            console.log('did not find the email')
-        } else if (validate && accountContext.accounts.email === context.email) {
-            accountContext.accounts.balance = total;
-            }
-        }
+        accountContext.accounts.find(account => {
+            account.id === context.id ? account.balance = total : console.log('updated balance');
+        });
+    }
 
     useEffect (() => {
         if ( 0 === withdrawal ) {

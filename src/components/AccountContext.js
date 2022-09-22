@@ -7,7 +7,9 @@ const ctx = {
             "name": "stephen",
             "email": "king@mit.edu",
             "balance": 0,
-            "password": "secret"
+            "password": "secret",
+            "transactionHistory": [],
+            "loggedin": false
         }
     ]
 }

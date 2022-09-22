@@ -28,7 +28,7 @@ function AllData() {
                     <th scope="row">{id}</th>
                     <td>{name}</td>
                     <td>{email}</td>
-                    {/* <td>{balance}</td> */}
+                    <td>{balance}</td>
                 </tr>
             )}
         })
@@ -37,6 +37,8 @@ function AllData() {
     const handleAllData = () => {
         setShowAllData(true);
     }
+
+    
     
  
     return (
@@ -69,9 +71,9 @@ function AllData() {
                         <th>
                             Email
                         </th>
-                        {/* <th>
+                        <th>
                             Account Balance
-                        </th> */}
+                        </th>
                         </tr>
                     </thead>
                     

@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const user = {
   id: 0,
-  name: 'Tinabear',
+  name: '',
   email: '',
   password: '',
   balance: 0,
